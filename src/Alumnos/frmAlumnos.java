@@ -20,8 +20,9 @@ public class frmAlumnos extends JFrame {
     private JButton cancelarButton;
     private JTextField txtCURP;
     private JPanel pnlPrincipal;
-    private JButton button1;
+    private JButton GEdad;
     private JButton butEdad;
+    private JTextField txtEdad;
     private BotonGuardarListener botonGuardarListener;
 
 
@@ -53,6 +54,7 @@ public class frmAlumnos extends JFrame {
 
             }
         });
+
     }
 
     public void setBotonGuardarListener(BotonGuardarListener listener) {
@@ -68,8 +70,9 @@ public class frmAlumnos extends JFrame {
         String telefono = txtTelefono.getText();
         String sexo = cmbSexo.getSelectedItem().toString();
         Boolean discapacidad = chkDiscapacidad.isSelected();
+        String edad = txtEdad.getText();
 
-        alumno dato = new alumno(nombre, apaterno, amaterno, CURP, telefono, correo, discapacidad, sexo);
+        alumno dato = new alumno(nombre, apaterno, amaterno, CURP, telefono, correo, discapacidad, sexo,edad);
 
         if (botonGuardarListener != null) {
             botonGuardarListener.guardando(dato);
@@ -117,10 +120,8 @@ public class frmAlumnos extends JFrame {
             }
         }
         Period periodo = Period.between(fechaNacimiento, fechaActual);
-        JOptionPane.showMessageDialog(null,
-                "Tu edad es: " + periodo.getYears() + " años",
-                "Resultado",
-                JOptionPane.INFORMATION_MESSAGE);
+
+        txtEdad.setText(""+periodo.getYears()+"años");
 
 
     }

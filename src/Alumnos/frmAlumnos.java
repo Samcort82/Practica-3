@@ -121,7 +121,7 @@ public class frmAlumnos extends JFrame {
         }
         Period periodo = Period.between(fechaNacimiento, fechaActual);
 
-        txtEdad.setText(""+periodo.getYears()+"años");
+        txtEdad.setText(""+periodo.getYears() +" años");
 
 
     }

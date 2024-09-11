@@ -22,7 +22,7 @@ public class Main {
                         System.out.println("Telefono :" + persona.getTelefono());
                         System.out.println("Correo :" + persona.getCorreo());
                         System.out.println("Discapacidad: " + persona.getDiscapacidad());
-
+//
 
                     }
                 });

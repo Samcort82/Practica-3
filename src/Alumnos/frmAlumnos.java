@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Scanner;
 
 public class frmAlumnos extends JFrame {
     private JTextField txtNombre;
@@ -102,7 +103,29 @@ public class frmAlumnos extends JFrame {
     }
 
     private void calcularEdad() {
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            String curp = txtCURP.getText().toUpperCase();
+            try {
+                String fechaNacimientoStr = curp.substring(4, 10);
+
+                DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyMMdd");
+                LocalDate fechaNacimiento = LocalDate.parse(fechaNacimientoStr, formato);
+
+                LocalDate fechaActual = LocalDate.now();
+                Period periodo = Period.between(fechaNacimiento, fechaActual);
+                int edad = periodo.getYears();
+                txtEdad.setText(edad + " años");
+
+            } catch (Exception e) {
+                txtEdad.setText("CURP no válida");
+            }
+        }
+
+
+
+
+
+    }
+        /*DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate fechaActual = LocalDate.now();
         LocalDate fechaNacimiento = null;
         while (fechaNacimiento == null) {
@@ -125,9 +148,11 @@ public class frmAlumnos extends JFrame {
         txtEdad.setText(""+periodo.getYears() +" años");
 
 
-    }
+         */
 
-}
+
+
+
 
 
 

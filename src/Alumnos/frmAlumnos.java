@@ -90,6 +90,7 @@ public class frmAlumnos extends JFrame {
         txtTelefono.setText("");
         cmbSexo.setSelectedIndex(0);
         chkDiscapacidad.setSelected(false);
+        txtEdad.setText("");
     }
 
     private void poblarComboBox() {

@@ -44,11 +44,15 @@ public class Main {
 
                         try(FileWriter archivo = new FileWriter(path.toFile(),true)) {
                             PrintWriter pw = new PrintWriter(archivo);
-                            pw.println("Nombre:"+ contenido1);
-                            pw.println("Telefono:"+ contenido2);
-                            pw.println("Correo:"+ contenido3);
-                            pw.println("Discapacidad:" + contenido4);
-                            pw.println("Edad:"+ contenido5);
+                            pw.println("Nombre:"+ contenido);
+                            pw.println("Apaterno:"+contenido1);
+                            pw.println("AMaterno:"+contenido2);
+                            pw.println("Sexo:"+contenido3);
+                            pw.println("Curp:"+contenido4);
+                            pw.println("Telefono:"+ contenido5);
+                            pw.println("Correo:"+ contenido6);
+                            pw.println("Discapacidad:" + contenido7);
+                            pw.println("Edad:"+ contenido8);
                         }
                         catch(IOError e){e.getMessage();}catch(IOException e){
                             throw new RuntimeException(e);

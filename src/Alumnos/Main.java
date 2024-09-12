@@ -41,6 +41,7 @@ public class Main {
                         String contenido7 = persona.getDiscapacidad();
                         String contenido8 = persona.getEdad();
 
+
                         try(FileWriter archivo = new FileWriter(path.toFile(),true)) {
                             PrintWriter pw = new PrintWriter(archivo);
                             pw.println("Nombre:"+ contenido1);

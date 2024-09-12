@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class frmAlumnos extends JFrame {
     private JTextField txtNombre;
     private JTextField txtAPaterno;
-    private JPasswordField txtAMaterno;
+    private JTextField txtAMaterno;
     private JTextField txtCorreo;
     private JTextField txtTelefono;
     private JComboBox cmbSexo;
@@ -31,7 +31,7 @@ public class frmAlumnos extends JFrame {
         setTitle("Alumnos");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setContentPane(pnlPrincipal);
-        setBounds(300,300,600,700);
+        setBounds(300, 300, 600, 700);
 
         poblarComboBox();
         setLocationRelativeTo(null);
@@ -39,6 +39,8 @@ public class frmAlumnos extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 enviarDatos();
+
+
             }
         });
         cancelarButton.addActionListener(new ActionListener() {
@@ -72,8 +74,10 @@ public class frmAlumnos extends JFrame {
         String sexo = cmbSexo.getSelectedItem().toString();
         Boolean discapacidad = chkDiscapacidad.isSelected();
         String edad = txtEdad.getText();
+        String curp = txtCURP.getText().toUpperCase();
 
-        alumno dato = new alumno(nombre, apaterno, amaterno, CURP, telefono, correo, discapacidad, sexo,edad);
+
+        alumno dato = new alumno(nombre, apaterno, amaterno, CURP, telefono, correo, discapacidad, sexo, edad);
 
         if (botonGuardarListener != null) {
             botonGuardarListener.guardando(dato);
@@ -125,6 +129,9 @@ public class frmAlumnos extends JFrame {
 
 
     }
+
+
+
         /*DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate fechaActual = LocalDate.now();
         LocalDate fechaNacimiento = null;
